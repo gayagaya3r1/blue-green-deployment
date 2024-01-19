@@ -1,0 +1,12 @@
+- name: install nginx with latest version
+  hosts: mongodb
+  become: yes
+  tasks:
+  - name: install nginx
+    ansible.builtin.yum:
+      name: nginx
+      state: installed
+  - name: Start service nginx, if not started
+    ansible.builtin.service:
+    name: nginx
+    state: started
