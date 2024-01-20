@@ -1,0 +1,9 @@
+- name: creating var files
+  hosts: mongodb
+  vars:
+    name: Gayathri
+    learning: DevOps
+  tasks:
+    name: printing msg
+    ansible.builtin.yum:
+      msg: "person name {{name}}, person learning {{learning}}"
