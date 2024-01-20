@@ -5,5 +5,5 @@
     learning: DevOps
   tasks:
   - name: printing msg
-    ansible.builtin.yum:
+    ansible.builtin.debug:
       msg: "person name {{name}}, person learning {{learning}}"
