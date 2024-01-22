@@ -6,9 +6,8 @@
     ansible.builtin.yum:
       name: nginx
       state: installed
-  - name: Start service nginx, if not started, and enable it
-    #ansible.builtin.service:
-    ansible.legacy.systemd:
+  - name: start and enable nginx
+    ansible.builtin.service:
       name: nginx
       state: started
       enable: yes
