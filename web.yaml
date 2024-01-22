@@ -11,7 +11,7 @@
     ansible.legacy.systemd:
       name: nginx
       state: started
-      enable: yes
+      enabled: yes
   - name: remove html directory
     ansible.builtin.file:
       path: /usr/share/nginx/html
