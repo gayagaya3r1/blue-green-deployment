@@ -7,7 +7,6 @@
       name: nginx
       state: installed
   - name: start and enable nginx
-    #ansible.builtin.service:
     ansible.legacy.systemd:
       name: nginx
       state: started
@@ -26,7 +25,7 @@
       dest: /tmp
   - name: extract artifact
     ansible.builtin.unarchive:
-      src: /tmp.web.zip
+      src: /tmp/web.zip
       dest: /usr/share/nginx/html
       remote_src: yes
   - name: copy roboshop.conf
