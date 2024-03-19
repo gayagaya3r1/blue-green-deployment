@@ -24,7 +24,7 @@ pipeline{
 
  post {
 
-     alwaysv{
+     always{
         echo "I will always run sucess or not"
      }
 
