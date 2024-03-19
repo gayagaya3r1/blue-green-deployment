@@ -6,6 +6,7 @@ pipeline{
         stage('build') {
             steps{
                 echo "building"
+                echo "push event to jenkins"
             }
             
         }
