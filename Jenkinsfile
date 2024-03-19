@@ -33,6 +33,6 @@ pipeline{
      }
      failure{
         echo "I will run only job is failure"
-    }
+     }
  }
 }
