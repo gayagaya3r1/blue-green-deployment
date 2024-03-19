@@ -18,20 +18,21 @@ pipeline{
             steps{
                 echo "deploying"
             }
+        }
     }
-}
-}
 
-post {
 
-    always{
+ post {
+
+     always{
         echo "I will always run sucess or not"
-    }
+     }
 
-    sucess{
+     sucess{
         echo "I will run only job is success"
-    }
-    failur{
+     }
+     failure{
         echo "I will run only job is failure"
     }
+ }
 }
