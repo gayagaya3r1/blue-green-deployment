@@ -24,14 +24,14 @@ pipeline{
 
  post {
 
-     always{
+     always {
         echo "I will always run sucess or not"
      }
 
-     success{
+     success {
         echo "I will run only job is success"
      }
-     failure{
+     failure {
         echo "I will run only job is failure"
      }
  }
