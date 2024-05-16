@@ -78,13 +78,24 @@ resource "aws_lb_listener" "app" {
   load_balancer_arn = aws_lb.app.arn
   port              = "80"
   protocol          = "HTTP"
+#### default_action block where you define the default action for a listener rule in an AWS Application Load Balancer (ALB) or Network Load Balancer (NLB).
+In this case, the default action type is set to "forward", meaning incoming requests will be forwarded to a target group.
+### Within the default_action block, you specify the forward action, which indicates that incoming requests should be forwarded to one or more target groups.
+hcl
 
   default_action {
     type = "forward"
     # target_group_arn = aws_lb_target_group.blue.arn
     forward {
+#### Here, aws_lb_target_group.blue.arn refers to the ARN (Amazon Resource Name) of the blue target group.
       target_group {
         arn    = aws_lb_target_group.blue.arn
+
+lookup(..., "green", 0): The lookup function takes three arguments:
+The first argument is the map or object from which to retrieve a value.
+The second argument is the key to search for in the map.
+The third argument is the default value to return if the key is not found in the map.
+
         weight = lookup(local.traffic_dist_map[var.traffic_distribution], "blue", 100)
       }
 
