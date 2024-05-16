@@ -1,6 +1,7 @@
 
 # EC2 Instance
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
+# create resource for blue 
 resource "aws_instance" "blue" {
   count = var.enable_blue_env ? var.blue_instance_count : 0
 
@@ -8,6 +9,8 @@ resource "aws_instance" "blue" {
   instance_type          = "t2.micro"
   subnet_id              = local.private_a_subnet_id
   vpc_security_group_ids = [aws_security_group.web.id]
+
+#i used template function to read the data whixh i defined in script and read that content
 
   user_data = templatefile("./init-script.sh", {
     file_content = "blue version 1.2 - ${count.index}"
